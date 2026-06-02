@@ -44,6 +44,7 @@
   --accent-dark-blue: #1d6da1;
   --accent-sage: #87a987;
   --accent-wheat: #e6c384;
+  --accent-antique-brass: #c4a882;
 }
 
 html {
@@ -96,54 +97,41 @@ svg {
 
 a {
   color: var(--text-primary);
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
+  text-decoration: none;
   padding: 0.2em;
-  border-radius: 3.01px;
-  transition: color var(--transition-fast);
   cursor: pointer;
+  background: linear-gradient(var(--accent-antique-brass), var(--accent-antique-brass)) no-repeat right bottom / 0% 2px;
+  transition: background-size 0.3s ease, background-position 0s 0.3s;
 
-  &:hover {
-    background-color: var(--accent-dark-blue);
-    text-decoration-color: transparent;
+  &:hover,
+  &:active {
+    background-position: left bottom;
+    background-size: 100% 2px;
+    transition: background-size 0.3s ease;
   }
 }
 
 /* Exception: reset hover/decoration for special link contexts */
-.pill > a,
-footer a:has(svg) {
-  text-decoration-color: transparent;
-  &:hover {
-    background-color: transparent;
-  }
+.pill > a {
+  text-decoration: none;
+  background: none;
+  transition: none;
 }
-
-#TableOfContents ul ul a,
-.path-nav__item > a {
-  color: var(--text-secondary);
-  background-color: transparent;
-  text-decoration-color: transparent;
-
-  &:hover {
-    text-decoration-color: var(--text-primary);
-  }
-}
-
 /* Pill */
 
 .pill {
-  background-color: var(--accent-sage);
+  background-color: var(--accent-dark-blue);
   padding: 0.2em;
   border-radius: 3.01px;
   transition: background-color var(--transition-fast);
 
   & > a {
-    color: var(--bg-primary);
+    color: var(--text-primary);
     font-size: calc(var(--font-size-base) - 0.16em);
     transition: color var(--transition-fast);
 
     &:hover {
-      color: var(--accent-sage);
+      color: var(--accent-antique-brass);
     }
   }
 
@@ -159,7 +147,6 @@ footer a:has(svg) {
   font-size: calc(var(--font-size-base) + 0.5em);
   font-weight: bold;
 }
-
 
 .single section :is(h1, h2, h3, h4, h5, h6)::before {
   color: var(--text-muted);
@@ -222,11 +209,9 @@ blockquote {
   }
 
   p {
-   
     font-style: italic;
 
     font-size: calc(var(--font-size-base) + 0.75);
-  
   }
 }
 
@@ -247,7 +232,13 @@ th:not(.gist-data *) {
 #TableOfContents > ul {
   list-style-type: "//  ";
 }
+#TableOfContents ul ul a {
+  color: var(--text-secondary);
+  background-color: transparent;
+  text-decoration-color: transparent;
 
+
+}
 /*  Breadcrumb nav ─ */
 
 .path-nav__list {
@@ -257,6 +248,8 @@ th:not(.gist-data *) {
 
 .path-nav__item--current > a {
   color: var(--text-primary);
+  background-position: left bottom;
+  background-size: 100% 2px;
 }
 
 /*  Horizontal list  */

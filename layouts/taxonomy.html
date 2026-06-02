@@ -1,12 +1,12 @@
+{{ define "main" }}
+{{ $letters := split "ABCDEFGHIJKLMNOPQRSTUVWXYZ" "" }}
+
 
 <!--  Taxonomy
    Adapted from imgios/not-much (MIT License)
    https://github.com/imgios/not-much
  -->
 
-
-{{ define "main" }} 
-{{ $letters := split "ABCDEFGHIJKLMNOPQRSTUVWXYZ" "" }}
 <article>
    <ol class="list__items">
       {{ range sort .Site.Taxonomies.tags }}
