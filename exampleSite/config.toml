@@ -1,0 +1,33 @@
+baseURL = 'https://example.org/'
+locale = 'en-us'
+title = 'Kanso'
+themesDir = '../..'
+theme = 'kanso'
+Copyright = 'Sample custom notice © {year}' 
+
+
+
+[menus]
+  [[menus.main]]
+    name = 'Home'
+    pageRef = '/'
+    weight = 10
+
+  [[menus.main]]
+    name = 'Posts'
+    pageRef = '/posts'
+    weight = 20
+
+
+
+
+[params]
+  [params.footer]
+    showThemeAttribution = true
+    showSocialLinks = true
+    socialLinkType = "icon"
+
+  [[params.footer.social]]
+    title = "github"
+    link = "https://github.com/bitgnostiq"
+

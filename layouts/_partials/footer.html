@@ -1,0 +1,20 @@
+{{ if .Site.Params.footer.showSocialLinks | default true }}
+<section >
+  {{ $linkType := .Site.Params.footer.socialLinkType }}
+  {{ range .Site.Params.footer.social }}
+  <a href="{{ .link }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .title }}">
+     {{ cond (eq $linkType "icon") (partial "svg" .title) .title }}
+  </a>
+  {{ end }}
+</section>
+{{ end }}
+
+<section class="footer__meta">
+  {{ replace .Site.Copyright "{year}" now.Year }}
+  {{ if .Site.Params.footer.showThemeAttribution | default true }}
+    // powered by
+    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+    &amp;
+    <a href="https://github.com/bitgnostiq/kanso" target="_blank" rel="noopener noreferrer">Kanso</a>
+  {{ end }}
+</section>
