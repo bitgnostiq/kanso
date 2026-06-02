@@ -1,0 +1,29 @@
+
+<!--  Taxonomy
+   Adapted from imgios/not-much (MIT License)
+   https://github.com/imgios/not-much
+ -->
+
+
+{{ define "main" }} 
+{{ $letters := split "ABCDEFGHIJKLMNOPQRSTUVWXYZ" "" }}
+<article>
+   <ol class="list__items">
+      {{ range sort .Site.Taxonomies.tags }}
+        <li >
+
+        {{ $firstChar := substr .Page.Title 0 1 | upper }}
+        {{ if $firstChar | in $letters }}
+            {{ $curLetter := $.Scratch.Get "curLetter" }}
+            {{ if ne $firstChar $curLetter }}
+            {{ $.Scratch.Set "curLetter" $firstChar }}
+                <p > / {{ $firstChar }}</p>
+            {{ end }}
+            <a  href="{{ .Page.Permalink }}">{{ .Page.Title }} ({{ .Count }})</a>
+        {{ end }}
+        </li>
+    {{ end }}
+  </ol>
+
+</article>
+{{ end }}

@@ -1,0 +1,336 @@
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: local("JetBrains Mono");
+  font-display: swap;
+}
+
+:root {
+  /* Spacing */
+  --spacing-base: 1.5em;
+  --spacing-xs: calc(var(--spacing-base) * 0.25);
+  --spacing-sm: calc(var(--spacing-base) * 0.5);
+  --spacing-lg: calc(var(--spacing-base) * 2);
+
+  /* Typography */
+  --font-family-mono: "JetBrains Mono";
+  --font-size-base: 1em;
+  --font-size-small: 0.5em;
+  --font-size-code: 0.95em;
+
+  /* Transitions */
+  --transition-fast: 0.12s ease;
+
+  /* Layout */
+  --container-width: 64ch;
+  --gap-base: 1em;
+  --gap-small: 0.5em;
+
+  /* Backgrounds */
+  --bg-primary: #0d0c0c;
+
+  /* Text */
+  --text-primary: #ffffff;
+  --text-secondary: #d4d4d8;
+  --text-muted: #737c73;
+
+  /* Accents */
+  --accent-dark-blue: #1d6da1;
+  --accent-sage: #87a987;
+  --accent-wheat: #e6c384;
+}
+
+html {
+  margin: 0 0 0 calc(100vw - 100%);
+  -webkit-text-size-adjust: 100%;
+  height: 100%;
+}
+
+body {
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  font: var(--font-size-base) / var(--spacing-base) var(--font-family-mono);
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: minmax(auto, var(--container-width));
+  justify-content: center;
+  padding: var(--spacing-lg);
+  gap: var(--spacing-lg);
+}
+
+/*  Common */
+
+::selection {
+  background: var(--accent-wheat);
+  color: var(--text-primary);
+}
+
+p,
+pre {
+  margin: var(--spacing-base) 0;
+  color: var(--text-secondary);
+}
+
+img {
+  max-width: 100%;
+}
+
+svg {
+  fill: var(--text-secondary);
+  height: calc(var(--spacing-base) * 1.2);
+  width: auto;
+
+  &:hover {
+    fill: var(--text-primary);
+  }
+}
+
+/* Links */
+
+a {
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  padding: 0.2em;
+  border-radius: 3.01px;
+  transition: color var(--transition-fast);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--accent-dark-blue);
+    text-decoration-color: transparent;
+  }
+}
+
+/* Exception: reset hover/decoration for special link contexts */
+.pill > a,
+footer a:has(svg) {
+  text-decoration-color: transparent;
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+.path-nav__item > a {
+  color: var(--text-secondary);
+  background-color: transparent;
+
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+/* Pill */
+
+.pill {
+  background-color: var(--accent-sage);
+  padding: 0.2em;
+  border-radius: 3.01px;
+  transition: background-color var(--transition-fast);
+
+  & > a {
+    color: var(--bg-primary);
+    font-size: calc(var(--font-size-base) - 0.16em);
+    transition: color var(--transition-fast);
+
+    &:hover {
+      color: var(--accent-sage);
+    }
+  }
+
+  &:has(a:hover) {
+    background-color: var(--bg-primary);
+  }
+}
+
+/*  Headings */
+
+:is(h1, h2, h3, h4, h5, h6) {
+  margin: var(--spacing-base) 0;
+  font-size: calc(var(--font-size-base) + 0.5em);
+  font-weight: bold;
+}
+
+.single section :is(h1, h2, h3, h4, h5, h6)::before {
+  color: var(--text-muted);
+}
+
+.single section h1::before {
+  content: "# ";
+}
+.single section h2::before {
+  content: "## ";
+}
+.single section h3::before {
+  content: "### ";
+}
+.single section h4::before {
+  content: "#### ";
+}
+.single section h5::before {
+  content: "##### ";
+}
+.single section h6::before {
+  content: "###### ";
+}
+
+/*  Lists ─*/
+
+.single section ol:not(header ol),
+.single section ul:not(header ul) {
+  color: var(--text-secondary);
+  padding-left: var(--spacing-base);
+}
+
+
+
+/*  Single post meta ── */
+
+.single__meta {
+  display: flex;
+  align-items: center;
+  margin: var(--gap-small) 0;
+  gap: var(--gap-small);
+  font-size: calc(var(--font-size-base) - 0.16em);
+  color: var(--text-secondary);
+}
+
+.single__meta-item + .single__meta-item::before {
+  content: "/";
+  margin-right: var(--gap-small);
+}
+
+
+/*  Blockquote  
+   Adapted from imgios/not-much (MIT License)
+   https://github.com/imgios/not-much
+ */
+
+
+blockquote {
+  padding-left: calc(var(--spacing-base) * 2);
+  position: relative;
+  overflow: hidden;
+
+  &::before,
+  &::after {
+    position: absolute;
+    color: var(--text-muted);
+  }
+
+  &::before {
+    content: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='%23777777'><path d='M9.983 3v7.391C9.983 16.095 6.252 19.961 1 21l-.995-2.151C2.437 17.932 4 15.211 4 13H0V3h9.983zM24 3v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151C16.437 17.932 18 15.211 18 13h-3.983V3H24z'/></svg>");
+    left: var(--spacing-sm);
+  }
+
+  &::after {
+    content: "";
+    left: calc(var(--spacing-sm) + 5px);
+    top: var(--spacing-base);
+    width: 1px;
+    height: 100%;
+    background-color: currentColor;
+  }
+
+  p + p {
+    margin-top: var(--spacing-sm);
+  }
+}
+
+/*  Tables */
+
+th:not(.gist-data *),
+td:not(.gist-data *) {
+  padding: 0.5rem;
+  text-align: left;
+}
+
+th:not(.gist-data *) {
+  font-weight: bold;
+}
+
+/*  Table of Contents ─ */
+
+#TableOfContents > ul {
+  list-style-type: "//  ";
+}
+
+/*  Breadcrumb nav ─ */
+
+.path-nav__list {
+  display: flex;
+  list-style: none;
+}
+
+.path-nav__item--current > a {
+  color: var(--text-primary);
+}
+
+/*  Horizontal list  */
+
+.list__items--horizontal {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-xs);
+  list-style: none;
+}
+
+/*  Footer */
+
+footer {
+  padding: calc(var(--spacing-base) * 2) 0;
+  text-align: center;
+}
+
+.footer__meta {
+  margin-top: var(--spacing-base);
+}
+
+/*  Table of Contents sidebar 
+   Adapted from imgios/not-much (MIT License)
+   https://github.com/imgios/not-much
+ */
+
+@media (min-width: 768px) {
+  .toc {
+    --_half-container: 360px;
+    display: block !important;
+    position: fixed !important;
+    right: calc(50% - var(--_half-container) - 20px);
+    margin-right: 1.5rem;
+    opacity: 0.2;
+    transition:
+      opacity 1s ease-in-out,
+      margin 1s ease-in-out;
+
+    &:hover {
+      margin-right: 2.3rem;
+      opacity: 1;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .toc {
+    --_half-container: 480px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .toc {
+    --_half-container: 570px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .toc {
+    --_half-container: 660px;
+  }
+}

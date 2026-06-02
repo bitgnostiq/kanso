@@ -1,0 +1,36 @@
+{{ define "main" }}
+<article class="single">
+  <header>
+    <h1
+      style="
+        font-size: calc(var(--font-size-base) + 1rem);
+        text-transform: uppercase;
+        margin: 0 0 var(--spacing-xs) 0;
+      "
+    >
+      {{ .Title }}
+    </h1>
+    <section class="single__meta">
+      {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }} {{
+      $dateHuman := .Date | time.Format ":date_long" }}
+      <time  datetime="{{ $dateMachine }}"
+        >{{ $dateHuman }}</time
+      >
+      <span
+        >{{ printf "%d minutes" .ReadingTime }}</span
+      >
+    </section>
+
+    {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+  </header>
+  <section class="toc">
+  {{ if .Params.toc }}
+  <p style="font-weight: bold; text-decoration: underline;"> Table of Contents</p>
+        {{ .TableOfContents }}
+  {{ end }}
+  </section>
+
+  <section>{{ .Content }}</section>
+</article>
+
+{{ end }}

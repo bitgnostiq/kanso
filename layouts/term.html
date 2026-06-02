@@ -1,0 +1,21 @@
+{{ define "main" }}
+<article>
+  <h2 style="margin-top: 0; font-weight: bold">
+    content linked to
+    <span class="pill"> {{ .Title }}</span>
+  </h2>
+  {{ .Content }}
+  <div>
+    <ol >
+      {{ range .Pages }}
+        <li class="list__items--horizontal " style="justify-content: space-between;">
+        <div>
+          <a href="{{ .RelPermalink }}"> / {{ .LinkTitle }}</a>
+        </div>
+        <span>{{- partial "date" . -}}</span>
+      </li>
+      {{ end }}
+    </ol>
+  </div>
+</article>
+{{ end }}
