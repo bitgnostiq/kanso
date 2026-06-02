@@ -33,7 +33,7 @@
   --gap-small: 0.5em;
 
   /* Backgrounds */
-  --bg-primary: #0d0c0c;
+  --bg-primary: #1a1917;
 
   /* Text */
   --text-primary: #ffffff;
@@ -118,12 +118,14 @@ footer a:has(svg) {
   }
 }
 
+#TableOfContents ul ul a,
 .path-nav__item > a {
   color: var(--text-secondary);
   background-color: transparent;
+  text-decoration-color: transparent;
 
   &:hover {
-    background-color: transparent;
+    text-decoration-color: var(--text-primary);
   }
 }
 
@@ -158,6 +160,7 @@ footer a:has(svg) {
   font-weight: bold;
 }
 
+
 .single section :is(h1, h2, h3, h4, h5, h6)::before {
   color: var(--text-muted);
 }
@@ -189,8 +192,6 @@ footer a:has(svg) {
   padding-left: var(--spacing-base);
 }
 
-
-
 /*  Single post meta ── */
 
 .single__meta {
@@ -207,40 +208,25 @@ footer a:has(svg) {
   margin-right: var(--gap-small);
 }
 
-
 /*  Blockquote  
    Adapted from imgios/not-much (MIT License)
    https://github.com/imgios/not-much
  */
 
-
 blockquote {
-  padding-left: calc(var(--spacing-base) * 2);
-  position: relative;
-  overflow: hidden;
-
-  &::before,
-  &::after {
-    position: absolute;
-    color: var(--text-muted);
-  }
-
-  &::before {
-    content: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='%23777777'><path d='M9.983 3v7.391C9.983 16.095 6.252 19.961 1 21l-.995-2.151C2.437 17.932 4 15.211 4 13H0V3h9.983zM24 3v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151C16.437 17.932 18 15.211 18 13h-3.983V3H24z'/></svg>");
-    left: var(--spacing-sm);
-  }
-
-  &::after {
-    content: "";
-    left: calc(var(--spacing-sm) + 5px);
-    top: var(--spacing-base);
-    width: 1px;
-    height: 100%;
-    background-color: currentColor;
-  }
+  padding-left: calc(var(--spacing-base) * 1);
+  border-left: 2px solid var(--accent-sage);
 
   p + p {
     margin-top: var(--spacing-sm);
+  }
+
+  p {
+   
+    font-style: italic;
+
+    font-size: calc(var(--font-size-base) + 0.75);
+  
   }
 }
 

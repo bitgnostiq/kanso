@@ -18,7 +18,10 @@ Copyright = 'Sample custom notice © {year}'
     pageRef = '/posts'
     weight = 20
 
-
+  [[menus.main]]
+    name = 'Tags'
+    pageRef = '/tags'
+    weight = 30
 
 
 [params]
@@ -29,5 +32,5 @@ Copyright = 'Sample custom notice © {year}'
 
   [[params.footer.social]]
     title = "github"
-    link = "https://github.com/bitgnostiq"
+    link = "https://github.com/bitgnostiq/kanso"
 
