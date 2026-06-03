@@ -65,7 +65,7 @@ body {
 
 ::selection {
   background: var(--accent-wheat);
-  color: var(--text-primary);
+
 }
 
 p,
