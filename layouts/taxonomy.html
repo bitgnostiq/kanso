@@ -10,7 +10,7 @@
 <article>
    <ol class="list__items">
       {{ range sort .Site.Taxonomies.tags }}
-        <li >
+        <li style="list-style: none;">
 
         {{ $firstChar := substr .Page.Title 0 1 | upper }}
         {{ if $firstChar | in $letters }}

@@ -1,12 +1,8 @@
 baseURL = 'https://example.org/'
 locale = 'en-US'
-title = 'Kanso'
+title = 'Kansō'
 
-[markup]
-  [markup.highlight]
-    noClasses = false
-  [markup.goldmark.extensions]
-    table = true
+
 
     
 [module]

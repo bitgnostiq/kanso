@@ -1,3 +1,5 @@
+@import "syntax.css";
+
 * {
   margin: 0;
   padding: 0;
@@ -24,29 +26,22 @@
   --font-size-small: 0.5em;
   --font-size-code: 0.95em;
 
-  /* Transitions */
-  --transition-fast: 0.12s ease;
-
   /* Layout */
   --container-width: 64ch;
   --gap-base: 1em;
   --gap-small: 0.5em;
 
-  /* Backgrounds */
-  --bg-primary: #1a1917;
+  --bg-primary: #090e13;
 
-  /* Text */
-  --text-primary: #ffffff;
-  --text-secondary: #d4d4d8;
-  --text-muted: #737c73;
+  --text-primary: #c5c9c7;
+  --text-secondary: #a4a7a4;
+  --text-muted: #5c6066;
 
-  /* Accents */
-  --accent-dark-blue: #1d6da1;
+  --accent-dark-blue: #2d4f67;
   --accent-sage: #87a987;
   --accent-wheat: #e6c384;
-  --accent-antique-brass: #c4a882;
+  --accent-antique-brass: #c4b28a;
 }
-
 html {
   margin: 0 0 0 calc(100vw - 100%);
   -webkit-text-size-adjust: 100%;
@@ -79,6 +74,81 @@ pre {
   color: var(--text-secondary);
 }
 
+strong,
+b {
+  font-weight: bold;
+}
+em,
+i {
+  font-style: italic;
+}
+
+dt {
+  font-weight: bold;
+  margin: var(--spacing-sm) 0;
+}
+
+dd {
+  margin: var(--spacing-xs);
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+  margin: var(--spacing-base) 0;
+  font-weight: bold;
+}
+
+.single section :is(h1, h2, h3, h4, h5, h6)::before {
+  color: var(--text-muted);
+}
+
+h1 {
+  font-size: calc(var(--font-size-base) * 1.45);
+  letter-spacing: 0;
+}
+
+h2 {
+  font-size: calc(var(--font-size-base) * 1.35);
+  letter-spacing: 0;
+}
+
+h3 {
+  font-size: calc(var(--font-size-base) * 1.15);
+  letter-spacing: 0;
+}
+
+h4,
+h5,
+h6 {
+  font-size: calc(var(--font-size-base) * 1);
+  letter-spacing: 0;
+}
+
+mark {
+  color: var(--text-primary);
+}
+
+.single section ol:not(header ol),
+.single section ul:not(header ul) {
+  color: var(--text-secondary);
+  padding-left: var(--spacing-base);
+}
+
+p > kbd {
+  background: none;
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-code);
+  color: var(--text-secondary);
+  padding: var(--spacing-xs) calc(var(--spacing-xs) * 1.5);
+  border-top: 1px solid
+    color-mix(in srgb, var(--accent-antique-brass) 25%, transparent);
+  border-left: 1px solid
+    color-mix(in srgb, var(--accent-antique-brass) 60%, transparent);
+  border-right: 1px solid
+    color-mix(in srgb, var(--accent-antique-brass) 60%, transparent);
+  border-bottom: 3px solid var(--accent-antique-brass);
+  border-radius: 4px;
+}
+
 img {
   max-width: 100%;
 }
@@ -92,6 +162,48 @@ svg {
     fill: var(--text-primary);
   }
 }
+/* Code blocks */
+
+.code-block {
+  margin: var(--spacing-base) 0;
+  border: 1px solid #2a2828;
+  border-radius: 3.01px;
+  overflow: hidden;
+
+  pre {
+    margin: 0;
+    padding: var(--spacing-base);
+    overflow-x: auto;
+  }
+}
+
+.code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-xs) var(--spacing-base);
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--accent-dark-blue);
+  font-size: var(--font-size-code);
+
+  letter-spacing: 0.08em;
+}
+
+.code-copy {
+  color: var(--text-muted) !important;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--accent-antique-brass) !important;
+  }
+
+  &.copied {
+    color: var(--accent-antique-brass) !important;
+  }
+}
 
 /* Links */
 
@@ -100,8 +212,14 @@ a {
   text-decoration: none;
   padding: 0.2em;
   cursor: pointer;
-  background: linear-gradient(var(--accent-antique-brass), var(--accent-antique-brass)) no-repeat right bottom / 0% 2px;
-  transition: background-size 0.3s ease, background-position 0s 0.3s;
+  background: linear-gradient(
+      var(--accent-antique-brass),
+      var(--accent-antique-brass)
+    )
+    no-repeat right bottom / 0% 2px;
+  transition:
+    background-size 0.3s ease,
+    background-position 0s 0.3s;
 
   &:hover,
   &:active {
@@ -111,14 +229,29 @@ a {
   }
 }
 
-/* Exception: reset hover/decoration for special link contexts */
+.single section a:not(#TableOfContents a):not(.pill a) {
+  background: linear-gradient(
+      var(--accent-antique-brass),
+      var(--accent-antique-brass)
+    )
+    no-repeat left bottom / 100% 1px;
+  transition: background-size 0.3s ease;
+  text-underline-offset: 5px;
+
+  &:hover {
+    background-size: 0% 1px;
+    transition: background-size 0.3s ease;
+  }
+}
 .pill > a {
   text-decoration: none;
   background: none;
   transition: none;
 }
+
 /* Pill */
 
+mark,
 .pill {
   background-color: var(--accent-dark-blue);
   padding: 0.2em;
@@ -138,45 +271,6 @@ a {
   &:has(a:hover) {
     background-color: var(--bg-primary);
   }
-}
-
-/*  Headings */
-
-:is(h1, h2, h3, h4, h5, h6) {
-  margin: var(--spacing-base) 0;
-  font-size: calc(var(--font-size-base) + 0.5em);
-  font-weight: bold;
-}
-
-.single section :is(h1, h2, h3, h4, h5, h6)::before {
-  color: var(--text-muted);
-}
-
-.single section h1::before {
-  content: "# ";
-}
-.single section h2::before {
-  content: "## ";
-}
-.single section h3::before {
-  content: "### ";
-}
-.single section h4::before {
-  content: "#### ";
-}
-.single section h5::before {
-  content: "##### ";
-}
-.single section h6::before {
-  content: "###### ";
-}
-
-/*  Lists ─*/
-
-.single section ol:not(header ol),
-.single section ul:not(header ul) {
-  color: var(--text-secondary);
-  padding-left: var(--spacing-base);
 }
 
 /*  Single post meta ── */
@@ -227,23 +321,15 @@ th:not(.gist-data *) {
   font-weight: bold;
 }
 
-/*  Table of Contents ─ */
-
-#TableOfContents > ul {
-  list-style-type: "//  ";
-}
-#TableOfContents ul ul a {
-  color: var(--text-secondary);
-  background-color: transparent;
-  text-decoration-color: transparent;
-
-
-}
 /*  Breadcrumb nav ─ */
 
 .path-nav__list {
   display: flex;
   list-style: none;
+}
+
+.path-nav__item > a {
+  color: var(--text-secondary);
 }
 
 .path-nav__item--current > a {
@@ -277,6 +363,15 @@ footer {
    https://github.com/imgios/not-much
  */
 
+#TableOfContents > ul {
+  list-style-type: "//  ";
+}
+#TableOfContents ul ul a {
+  color: var(--text-secondary);
+  background-color: transparent;
+  text-decoration-color: transparent;
+}
+
 @media (min-width: 768px) {
   .toc {
     --_half-container: 360px;
@@ -284,6 +379,7 @@ footer {
     position: fixed !important;
     right: calc(50% - var(--_half-container) - 20px);
     margin-right: 1.5rem;
+
     opacity: 0.2;
     transition:
       opacity 1s ease-in-out,
