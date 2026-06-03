@@ -1,30 +1,23 @@
 +++
 title = 'Markdown Syntax'
-date = 2023-01-15T09:00:00-07:00
+date = 2026-05-05
 draft = false
 tags = ['Markdown','CSS']
 toc = true
-math = true
 +++
 
+## Headings
 
 # H1
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisquam sit consequat porro irure ut quos quae dolore illo quas. Odit ab deleniti irure beatae nemo nostrud praesentium cillum sed. Tempora aliquip dolor fugiat illo quaerat aute ducimus porro ullamco animi atque illo odit id.
-
 ## H2
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisquam sit consequat porro irure ut quos quae dolore illo quas. Odit ab deleniti irure beatae nemo nostrud praesentium cillum sed. Tempora aliquip dolor fugiat illo quaerat aute ducimus porro ullamco animi atque illo odit id.
-
 ### H3
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisquam sit consequat porro irure ut quos quae dolore illo quas. Odit ab deleniti irure beatae nemo nostrud praesentium cillum sed. Tempora aliquip dolor fugiat illo quaerat aute ducimus porro ullamco animi atque illo odit id.
-
 #### H4
+##### H5
+###### H6
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisquam sit consequat porro irure ut quos quae dolore illo quas. Odit ab deleniti irure beatae nemo nostrud praesentium cillum sed. Tempora aliquip dolor fugiat illo quaerat aute ducimus porro ullamco animi atque illo odit id.
 
-# Paragraphs
+
+## Paragraph
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisquam sit consequat porro irure ut quos quae dolore illo quas. Odit ab deleniti irure beatae nemo nostrud praesentium cillum sed. Tempora aliquip dolor fugiat illo quaerat aute ducimus porro ullamco animi atque illo odit id.
 
@@ -33,19 +26,30 @@ Cillum ut aliqua dolorem est architecto velit vitae commodo ea ea dolores. Lorem
 
 ## Blockquotes
 
-> Dorothy followed her through many of the beautiful rooms in her castle.
+> In the midst of winter, I found there was, within me, an invincible summer.
 
-### Blockquotes with Multiple Paragraphs
+### Blockquotes with attribution
 
-> Dorothy followed her through many of the beautiful rooms in her castle.
+> Don't communicate by sharing memory, share memory by communicating.
+> — Rob Pike[^1]
+
+[^1]: The above quote is excerpted from Rob Pike's [talk](https://www.youtube.com/watch?v=PAAkCSZUG1c) during Gopherfest, November 18, 2015.
+
+### Blockquote with Multiple Paragraphs
+
+> In the midst of winter, I found there was, within me, an invincible summer.
 >
-> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+> And that makes me happy. For it says that no matter how hard the world pushes against me, within me, there’s something stronger – something better, pushing right back.
+
+
 
 ### Nested Blockquotes
 
-> Dorothy followed her through many of the beautiful rooms in her castle.
+> In the midst of winter, I found there was, within me, an invincible summer.
 >
->> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+>> And that makes me happy. For it says that no matter how hard the world pushes against me, within me, there’s something stronger – something better, pushing right back.
+
+
 
 ### Blockquotes with Other Elements
 
@@ -71,11 +75,9 @@ Cillum ut aliqua dolorem est architecto velit vitae commodo ea ea dolores. Lorem
 | --------- | -------- |
 | `_italics_` | _italics_ |
 | `**strong**` | **strong** |
-| ``code`` | `code` |
+| ``code`` | ```code``` |
 | `~~strikethrough~~` | ~~strikethrough~~ |
-| `$\varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887…$` | $\varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887…$ |
 | `[Link](https://example.com)` | [Link](https://example.com) |
-| `[Link](https://example.com "Example link with tooltip")` | [Link with tooltip](https://example.com "Example link with tooltip") |
 
 
 ## List Types
@@ -92,16 +94,6 @@ Cillum ut aliqua dolorem est architecto velit vitae commodo ea ea dolores. Lorem
 - Another item
 - And another item
 
-### Nested Unordered list
-
-- Fruit
-  - Apple
-  - Orange
-  - Banana
-- Dairy
-  - Milk
-  - Cheese
-
 ### Nested Ordered list
 
 1. Fruit
@@ -115,13 +107,25 @@ Cillum ut aliqua dolorem est architecto velit vitae commodo ea ea dolores. Lorem
     1. Sub One
     2. Sub Two
 
+### Nested Unordered list
+
+- Fruit
+  - Apple
+  - Orange
+  - Banana
+- Dairy
+  - Milk
+  - Cheese
+
+
+
 ### Task List
 
 - [x] Write the press release
 - [ ] Update the website
 - [ ] Contact the media
 
-#### Definition List
+### Definition List
 
 First Term
 : This is the definition of the first term.
@@ -129,5 +133,18 @@ First Term
 Second Term
 : This is one definition of the second term.
 : This is another definition of the second term.
+
+
+## Other Elements — abbr, sub, sup, kbd, mark
+
+<abbr title="Graphics Interchange Format">GIF</abbr> is a bitmap image format.
+
+H<sub>2</sub>O
+
+X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>
+
+Press <kbd><kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Delete</kbd></kbd> to end the session.
+
+Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.
 
 
