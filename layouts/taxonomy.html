@@ -7,7 +7,7 @@
    https://github.com/imgios/not-much
  -->
 
-<article>
+<article class="taxonomy">
    <ol class="list__items">
       {{ range sort .Site.Taxonomies.tags }}
         <li style="list-style: none;">
@@ -17,7 +17,7 @@
             {{ $curLetter := $.Scratch.Get "curLetter" }}
             {{ if ne $firstChar $curLetter }}
             {{ $.Scratch.Set "curLetter" $firstChar }}
-                <p > / {{ $firstChar }}</p>
+                <p style="margin-bottom: 0;"> / {{ $firstChar }}</p>
             {{ end }}
             <a  href="{{ .Page.Permalink }}">{{ .Page.Title }} ({{ .Count }})</a>
         {{ end }}

@@ -2,7 +2,7 @@
 title = 'Markdown Syntax'
 date = 2026-05-05
 draft = false
-tags = ['Markdown','CSS']
+tags = ['Markdown','CSS', 'Hugo', 'HTML']
 toc = true
 +++
 
