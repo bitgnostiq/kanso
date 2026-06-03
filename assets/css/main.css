@@ -74,27 +74,30 @@ pre {
   color: var(--text-secondary);
 }
 
-strong,
-b {
-  font-weight: bold;
+h1, h2, h3, h4, h5, h6,
+b, strong, dt,
+th,
+button {
+  font-weight: 600;
 }
+
 em,
 i {
   font-style: italic;
 }
 
 dt {
-  font-weight: bold;
+
   margin: var(--spacing-sm) 0;
 }
 
 dd {
-  margin: var(--spacing-xs);
+  margin: var(--spacing-xs) 0;
 }
 
 :is(h1, h2, h3, h4, h5, h6) {
   margin: var(--spacing-base) 0;
-  font-weight: bold;
+
 }
 
 .single section :is(h1, h2, h3, h4, h5, h6)::before {
@@ -132,6 +135,7 @@ mark {
   color: var(--text-secondary);
   padding-left: var(--spacing-base);
 }
+
 
 p > kbd {
   background: none;
@@ -229,6 +233,7 @@ a {
   }
 }
 
+.taxonomy a,
 .single section a:not(#TableOfContents a):not(.pill a) {
   background: linear-gradient(
       var(--accent-antique-brass),
