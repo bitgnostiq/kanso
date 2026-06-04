@@ -47,3 +47,15 @@ Copyright = 'Sample custom notice © {year}'
     title = "github"
     link = "https://github.com/bitgnostiq/kanso"
 
+
+  [[params.notFound.links]]
+    title = "home"
+    text = "Return Home"
+    link = "/"
+ [[params.notFound.links]]
+    title = "posts"
+    text = "Browse Posts"
+    link = "/posts"
+
+
+
