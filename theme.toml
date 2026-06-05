@@ -1,13 +1,13 @@
 name = "bitgnostiq"
 license = "MIT"
 licenselink = "https://github.com/bitgnostiq/kanso/blob/main/LICENSE"
-description = ""
+description = "A minimalist Hugo theme born from a love affair between shibui, not-much and the Zen principle of Kanso"
 
 homepage = "https://github.com/bitgnostiq/kanso"
 
-demosite = "TBA"
+demosite = "https://bitgnostiq.dev/kanso"
 
-tags = ["blog", "minimal", "black", "personal", "simple",]
+tags = ["blog", "minimal", "black", "personal", "simple"]
 features = []
 
 min_version = "0.162.0"
