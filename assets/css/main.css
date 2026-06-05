@@ -74,6 +74,11 @@ pre {
   color: var(--text-secondary);
 }
 
+ol,
+ul {
+  color: var(--text-secondary);
+}
+
 h1,
 h2,
 h3,
