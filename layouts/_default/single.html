@@ -44,7 +44,7 @@
 
 
   {{ if not .IsHome }}
-    <section>
+    <section style="margin-top: var(--spacing-lg);">
       {{ with .Parent }}
         <a href="{{ .Permalink }}">../</a>
       {{ else }}
