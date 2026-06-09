@@ -1,15 +1,13 @@
 {{ define "main" }}
-{{ .Content }}
-<div>
-  <ol>
-    {{ range .Pages }}
-    <li class="list__items--horizontal" style="  gap: var(--spacing-lg);">
-
-              <span>{{- partial "date" . -}}</span>
-        <a href="{{ .RelPermalink }}"> / {{ .LinkTitle }}</a>
-     
-    </li>
-    {{ end }}
-  </ol>
-</div>
+  {{ .Content }}
+  <div>
+    <ol>
+      {{ range .Pages }}
+        <li class="list__item" >
+          <a href="{{ .RelPermalink }}"> / {{ .LinkTitle }}</a>
+          <span>{{- partial "date" . -}}</span>
+        </li>
+      {{ end }}
+    </ol>
+  </div>
 {{ end }}

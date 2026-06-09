@@ -10,15 +10,15 @@ For a given taxonomy, renders a list of terms assigned to the page.
 {{- $page := .page }} 
 {{- $taxonomy := .taxonomy }} 
 
-{{- with $page.GetTerms $taxonomy }} 
-{{- $label := (index . 0).Parent.LinkTitle }}
-<section>
-  <ul class="list__items--horizontal" style="gap: var(--spacing-xs);">
-    {{- range . }}
-    <li class="pill">
-       <a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>
-    </li>
-    {{- end }}
-  </ul>
-</section>
+{{- with $page.GetTerms $taxonomy }}
+  {{- $label := (index . 0).Parent.LinkTitle }}
+  <section>
+    <ul style="list-style: none; display: flex; gap: var(--spacing-xs)">
+      {{- range . }}
+        <li class="pill">
+          <a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>
+        </li>
+      {{- end }}
+    </ul>
+  </section>
 {{- end }}

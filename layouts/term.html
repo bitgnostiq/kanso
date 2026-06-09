@@ -1,19 +1,18 @@
 {{ define "main" }}
 <article>
-  <h1 style="margin-top: 0; font-weight: bold">
-    content linked to
-    <span class="pill"> {{ .Title }}</span>
-  </h1>
-  {{ .Content }}
-  <div>
-    <ol>
-      {{ range .Pages }}
-      <li class="list__items--horizontal" style="gap: var(--spacing-lg)">
-        <span>{{- partial "date" . -}}</span>
-        <a href="{{ .RelPermalink }}"> / {{ .LinkTitle }}</a>
-      </li>
-      {{ end }}
-    </ol>
-  </div>
+    <h1 style="margin-top: 0; font-weight: bold">
+        content linked to  {{ .Title }}
+    </h1>
+    {{ .Content }}
+    <div>
+        <ol>
+            {{ range .Pages }}
+            <li class="list__item">
+                <a href="{{ .RelPermalink }}"> / {{ .LinkTitle }}</a>
+                <span>{{- partial "date" . -}}</span>
+            </li>
+            {{ end }}
+        </ol>
+    </div>
 </article>
 {{ end }}
