@@ -9,7 +9,7 @@
     {{ if .IsHome }}
       {{ range .Site.Menus.main }}
         {{ if ne .Name "Home" }}
-          | <li>
+          <li class="path-nav__item--home">
             <a  href="{{ .URL }}">{{ .Name }}</a>
           </li>
         {{ end }}
