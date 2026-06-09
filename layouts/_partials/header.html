@@ -3,10 +3,9 @@
    https://github.com/ntk148v/shibui
 -->
 
-
 <nav aria-label="Breadcrumb">
   <ol class="path-nav__list">
-     {{ template "pathnav" (dict "cursor" . "currentPage" .) }}
+    {{ template "pathnav" (dict "cursor" . "currentPage" .) }}
     {{ if .IsHome }}
       {{ range .Site.Menus.main }}
         {{ if ne .Name "Home" }}
@@ -25,9 +24,10 @@
   {{ else if not .cursor.IsHome }}
     {{ template "pathnav" (dict "cursor" .cursor.Site.Home "currentPage" .currentPage) }}
   {{ end }}
-
-  <li class="path-nav__item{{ if eq .cursor .currentPage }} path-nav__item--current{{ end }}"
-    {{ if eq .cursor .currentPage }}aria-current="page"{{ end }}>
+  <li
+    class="path-nav__item{{ if eq .cursor .currentPage }} path-nav__item--current{{ end }}"
+    {{ if eq .cursor .currentPage }}aria-current="page"{{ end }}
+  >
     {{ if .currentPage.IsHome }}<span>/</span>{{ end }}
     <a href="{{ .cursor.RelPermalink }}">
       {{ if .cursor.IsHome }}{{ .cursor.Site.Title }}{{ else }}{{ .cursor.Title }}{{ end }}

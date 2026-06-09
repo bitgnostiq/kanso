@@ -111,6 +111,7 @@ dd {
 h1 {
   font-size: calc(var(--font-size-base) * 1.45);
   letter-spacing: 0;
+  line-height: var(--font-size-base);
 }
 
 h2 {
@@ -217,7 +218,7 @@ svg {
 a {
   color: var(--text-primary);
   text-decoration: none;
-  padding: 0.2em;
+
   cursor: pointer;
   background: linear-gradient(
       var(--accent-antique-brass),
@@ -237,7 +238,7 @@ a {
 }
 
 .taxonomy a,
-.single section a:not(#TableOfContents a):not(.pill a) {
+section a:not(#TableOfContents a):not(.pill a):not(footer a) {
   background: linear-gradient(
       var(--accent-antique-brass),
       var(--accent-antique-brass)
@@ -297,7 +298,7 @@ mark,
   margin-right: var(--gap-small);
 }
 
-/*  Blockquote  
+/*  Blockquote
    Adapted from imgios/not-much (MIT License)
    https://github.com/imgios/not-much
  */
@@ -346,12 +347,20 @@ th:not(.gist-data *) {
   background-size: 100% 2px;
 }
 
-/*  Horizontal list  */
-
-.list__items--horizontal {
+.list__item {
   display: flex;
   list-style: none;
-  justify-content: start;
+  justify-content: space-between;
+  list-style: none;
+}
+
+@media (max-width: 875px) {
+  .list__item {
+    flex-direction: column;
+    justify-content: start;
+    margin-top: var(--spacing-sm);
+
+  }
 }
 
 /*  Footer */
