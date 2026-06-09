@@ -6,4 +6,4 @@ draft = false
 
 
 
-# Kanso Demo
+# Kansō Demo

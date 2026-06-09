@@ -10,29 +10,47 @@
     >
       {{ .Title }}
     </h1>
+
+
     {{ if .Params.meta }}
-    <section class="single__meta">
       {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
       {{ $dateHuman := .Date | time.Format ":date_long" }}
-      <time  datetime="{{ $dateMachine }}"
-        >{{ $dateHuman }}</time
-      > /
-      <span
-        >{{ printf "%d minutes" .ReadingTime }}</span
-      >
-    </section>
+      <section class="single__meta">
+        <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time> /
+        {{ $lastModMachine := .Lastmod | time.Format "2006-01-02T15:04:05-07:00" }}
+        {{ if and (isset .Params "lastmod") (ne $lastModMachine $dateMachine) }}
+          {{ $lastModHuman := .Lastmod | time.Format ":date_long" }}
+          <span>
+            Updated: <time datetime="{{ $lastModMachine }}">{{ $lastModHuman }}</time>
+          </span>
+        {{ end }}
+        {{ $showReadingTime := .Params.showreadingtime | default site.Params.showreadingtime | default true }}
+        {{ if $showReadingTime }}
+          <span>{{ printf "%d min read" .ReadingTime }}</span>
+        {{ end }}
+      </section>
     {{ end }}
-
     {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
   </header>
-  <section class="toc">
+
+
   {{ if .Params.toc }}
-  <p > Table of Contents</p>
-        {{ .TableOfContents }}
+    <section class="toc">
+      <p>Table of Contents</p>
+      {{ .TableOfContents }}
+    </section>
   {{ end }}
-  </section>
-
   <section>{{ .Content }}</section>
-</article>
 
+
+  {{ if not .IsHome }}
+    <section>
+      {{ with .Parent }}
+        <a href="{{ .Permalink }}">../</a>
+      {{ else }}
+        <a href="{{ "/" | relURL }}">../</a>
+      {{ end }}
+    </section>
+  {{ end }}
+</article>
 {{ end }}
