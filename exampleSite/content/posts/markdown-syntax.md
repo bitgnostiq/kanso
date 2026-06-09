@@ -4,6 +4,7 @@ date = 2026-05-05
 draft = false
 tags = ['Markdown','CSS', 'Hugo', 'HTML']
 toc = true
+meta = true
 +++
 
 ## Headings
@@ -146,5 +147,3 @@ X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>
 Press <kbd><kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Delete</kbd></kbd> to end the session.
 
 Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.
-
-

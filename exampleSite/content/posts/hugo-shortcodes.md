@@ -4,6 +4,7 @@ date = 2026-05-05
 draft = false
 tags = ["hugo", "themes"]
 toc = true
+meta = true
 +++
 
 Hugo provides [built-in shortcodes](https://gohugo.io/content-management/shortcodes/#use-hugos-built-in-shortcodes) for rich content, along with a set of simple shortcodes that enable static and no-JS versions of various social media embeds, showcased below.
