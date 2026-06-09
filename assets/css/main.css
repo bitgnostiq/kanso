@@ -237,21 +237,7 @@ a {
   }
 }
 
-.taxonomy a,
-section a:not(#TableOfContents a):not(.pill a):not(footer a) {
-  background: linear-gradient(
-      var(--accent-antique-brass),
-      var(--accent-antique-brass)
-    )
-    no-repeat left bottom / 100% 1px;
-  transition: background-size 0.3s ease;
-  text-underline-offset: 5px;
 
-  &:hover {
-    background-size: 0% 1px;
-    transition: background-size 0.3s ease;
-  }
-}
 .pill > a {
   text-decoration: none;
   background: none;
@@ -374,7 +360,7 @@ footer {
   margin-top: var(--spacing-base);
 }
 
-/*  Table of Contents sidebar 
+/*  Table of Contents sidebar
    Adapted from imgios/not-much (MIT License)
    https://github.com/imgios/not-much
  */
@@ -390,7 +376,7 @@ footer {
   text-decoration-color: transparent;
 }
 
-@media (min-width: 1300px) {
+@media (min-width: 1200px) {
   .toc {
     display: block !important;
     position: fixed !important;
@@ -409,7 +395,7 @@ footer {
   }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1100px) {
   .toc {
     left: 2rem;
     max-width: 300px;
