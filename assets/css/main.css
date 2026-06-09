@@ -237,7 +237,6 @@ a {
   }
 }
 
-
 .pill > a {
   text-decoration: none;
   background: none;
@@ -324,10 +323,9 @@ th:not(.gist-data *) {
 }
 
 .path-nav__item--home::before {
-    content: "|";
-    margin-left: var(--gap-small);
-};
-
+  content: "|";
+  margin: 0 var(--gap-small);
+}
 
 .path-nav__item > a {
   color: var(--text-secondary);
@@ -351,13 +349,11 @@ th:not(.gist-data *) {
     flex-direction: column;
     justify-content: start;
     margin-top: var(--spacing-sm);
-
   }
 
   .path-nav__list {
     display: flex;
     flex-direction: column;
-
   }
 
 
