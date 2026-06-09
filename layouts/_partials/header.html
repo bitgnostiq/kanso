@@ -9,7 +9,7 @@
     {{ if .IsHome }}
       {{ range .Site.Menus.main }}
         {{ if ne .Name "Home" }}
-          <li aria-current="page">
+          | <li>
             <a  href="{{ .URL }}">{{ .Name }}</a>
           </li>
         {{ end }}
