@@ -323,6 +323,12 @@ th:not(.gist-data *) {
   list-style: none;
 }
 
+.path-nav__item--home::before {
+    content: "|";
+    margin-left: var(--gap-small);
+};
+
+
 .path-nav__item > a {
   color: var(--text-secondary);
 }
@@ -347,6 +353,16 @@ th:not(.gist-data *) {
     margin-top: var(--spacing-sm);
 
   }
+
+  .path-nav__list {
+    display: flex;
+    flex-direction: column;
+
+  }
+
+
+
+
 }
 
 /*  Footer */
