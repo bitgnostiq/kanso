@@ -3,13 +3,13 @@ locale = 'en-us'
 title = 'Kansō'
 themesDir = '../..'
 theme = 'kanso'
-Copyright = 'Sample custom notice © {year}' 
+Copyright = 'Sample custom notice © {year}'
 
 [markup]
   defaultMarkdownHandler = "goldmark"
   [markup.goldmark]
     [markup.goldmark.renderer]
-      unsafe = true  
+      unsafe = true
   [markup.highlight]
     codeFences = true
     guessSyntax = true
@@ -18,7 +18,7 @@ Copyright = 'Sample custom notice © {year}'
     tabWidth = 4
 
 
-   
+
 
 [menu]
   [[menu.main]]
@@ -39,6 +39,7 @@ Copyright = 'Sample custom notice © {year}'
     socialLinkType = "icon"
 
   [[params.footer.social]]
+    text = "github"
     title = "github"
     link = "https://github.com/bitgnostiq/kanso"
 
@@ -51,6 +52,3 @@ Copyright = 'Sample custom notice © {year}'
     title = "posts"
     text = "Browse Posts"
     link = "/posts"
-
-
-

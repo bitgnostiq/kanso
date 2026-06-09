@@ -3,7 +3,7 @@
   {{ $linkType := .Site.Params.footer.socialLinkType }}
   {{ range .Site.Params.footer.social }}
   <a href="{{ .link }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .title }}">
-     {{ cond (eq $linkType "icon") (partial "svg" .title) .title }}
+     {{ cond (eq $linkType "icon") (partial "svg" .title) .text }}
   </a>
   {{ end }}
 </section>
