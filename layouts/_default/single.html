@@ -43,14 +43,5 @@
   <section>{{ .Content }}</section>
 
 
-  {{ if not .IsHome }}
-    <section style="margin-top: var(--spacing-lg);">
-      {{ with .Parent }}
-        <a href="{{ .Permalink }}">../</a>
-      {{ else }}
-        <a href="{{ "/" | relURL }}">../</a>
-      {{ end }}
-    </section>
-  {{ end }}
 </article>
 {{ end }}

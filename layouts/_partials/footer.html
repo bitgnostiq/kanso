@@ -1,20 +1,35 @@
 {{ if .Site.Params.footer.showSocialLinks | default true }}
-<section >
+<section>
   {{ $linkType := .Site.Params.footer.socialLinkType }}
   {{ range .Site.Params.footer.social }}
   <a href="{{ .link }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .title }}">
-     {{ cond (eq $linkType "icon") (partial "svg" .title) .text }}
+    {{ cond (eq $linkType "icon") (partial "svg" .title) .text }}
   </a>
   {{ end }}
 </section>
 {{ end }}
 
 <section class="footer__meta">
-  {{ replace .Site.Copyright "{year}" now.Year }}
-  {{ if .Site.Params.footer.showThemeAttribution | default true }}
-    // powered by
-    <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
-    &amp;
-    <a href="https://github.com/bitgnostiq/kanso" target="_blank" rel="noopener noreferrer">Kanso</a>
-  {{ end }}
+  <span>
+    {{ replace .Site.Copyright "{year}" now.Year }}
+  </span>
+  <span>
+    {{ if not .IsHome }}
+      <span class="pill">
+        {{ with .Parent }}
+          <a style="font-size: calc(var(--font-size-base) + 0.125)" href="{{ .Permalink }}">../</a>
+        {{ else }}
+          <a  style="font-size: calc(var(--font-size-base) + 0.125)"   href="{{ "/" | relURL }}">../</a>
+        {{ end }}
+      </span>
+    {{ end }}
+    {{ if and (.Site.Params.footer.showThemeAttribution | default true) .IsHome }}
+      <span>
+        powered by
+        <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>
+        &amp;
+        <a href="https://github.com/bitgnostiq/kanso" target="_blank" rel="noopener noreferrer">Kanso</a>
+      </span>
+    {{ end }}
+  </span>
 </section>
