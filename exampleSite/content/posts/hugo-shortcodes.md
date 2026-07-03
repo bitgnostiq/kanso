@@ -22,7 +22,7 @@ Hugo provides [built-in shortcodes](https://gohugo.io/content-management/shortco
 
 ## Instagram shortcode
 
-{{< instagram DT0SsJ5E4rN >}}
+{{< instagram CxOWiQNP2MO >}}
 
 ## X shortcode
 
