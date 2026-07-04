@@ -28,9 +28,9 @@
         {{ if $showReadingTime }}
           <span>{{ printf "%d min read" .ReadingTime }}</span>
         {{ end }}
+	/ {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
       </section>
     {{ end }}
-    {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
   </header>
 
 
